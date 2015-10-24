@@ -3,14 +3,21 @@
  */
 
 var field = document.getElementById("field");
-var accuracy = 11/360;
+var accuracy = 21/360;
+var score_sign = document.getElementById("score_sign");
+var score = 0;
 
 function wrong(cell){
-    console.log(cell);
+    console.log('No. '+cell.style.backgroundColor);
+    cell.style.backgroundColor = "#ffffff";
+    cell.onclick = null;
 }
 
 function right(cell){
-    console.log('Yahoo!');
+    console.log('Yahoo! ');
+    score_sign.innerHTML=++score;
+    field.innerHTML = "";
+    field.appendChild(coloredTable(5, 5));
 }
 
 function colorByHue(hue){
@@ -28,14 +35,14 @@ function coloredTable(x, y) {
             td.appendChild(document.createTextNode(''));
             if (rx===i && ry ===j){
                 td.style.backgroundColor = colorByHue(pureHue());
-                td.onclick = function (td) {
-                    return right(td)
-                }
+                td.onclick = function (click){
+                    return right(click.target)
+                };
             }
             else {
                 td.style.backgroundColor = colorByHue(notPureHue(accuracy));
-                td.onclick = function (td) {
-                    return wrong(td)
+                td.onclick = function (click){
+                    return wrong(click.target)
                 };
             }
         }
