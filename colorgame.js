@@ -14,12 +14,12 @@ var score_sign = document.getElementById("score_sign"),
 
 var timer_bar = document.getElementById("timer_bar"),
     timer = 0,
-    penalty = 20;
+    penalty = 5;
 
 function wrong(cell){
     cell.style.backgroundColor = "black";
     cell.onclick = null;
-    timer += penalty;
+    timer += penalty*level;
     if(timer >= 100) new_game();
 }
 
