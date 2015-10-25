@@ -7,22 +7,25 @@ var field = document.getElementById("field"),
     min_saturation = .8;
 
 var score_sign = document.getElementById("score_sign"),
-    score = 0;
+    best_sign = document.getElementById("best_sign"),
+    score = 0,
+    best = 0,
+    level = 1;
 
 var timer_bar = document.getElementById("timer_bar"),
     timer = 0,
-    max_time = 218;
+    max_bar_width = 243;
 
 function wrong(cell){
-    //console.log('No. '+cell.style.backgroundColor);
-    cell.style.backgroundColor = "#ffffff";
-    cell.onclick = null;
+    cell.style.backgroundColor = "black";
 }
 
 function right(cell){
-    //console.log('Yahoo! ');
     timer = 0;
-    score_sign.innerHTML=++score;
+    score += level;
+    if(score>best) best=score;
+    score_sign.innerHTML=score;
+    best_sign.innerHTML=best;
     field.innerHTML = "";
     field.appendChild(coloredTable(5, 5));
 }
@@ -35,9 +38,9 @@ function coloredTable(x, y) {
         var tr = table.insertRow();
         for (var j = 0; j < y; j++) {
             var td = tr.insertCell(-1);
-            td.appendChild(document.createTextNode(''));
+            var color = 'white';
             if (rx===i && ry ===j){
-                td.style.backgroundColor = hsv(
+                color = hsv(
                     pureHue(),
                     1,
                     1
@@ -47,7 +50,7 @@ function coloredTable(x, y) {
                 };
             }
             else {
-                td.style.backgroundColor = hsv(
+                color = hsv(
                     notPureHue(accuracy),
                     Math.random()*(1 - min_saturation) + min_saturation,
                     1
@@ -56,14 +59,23 @@ function coloredTable(x, y) {
                     return wrong(click.target)
                 };
             }
+            td.style.backgroundColor = color;
+            td.style.color = color;
+            td.appendChild(document.createTextNode(color));
+            //td.className = color;
         }
     }
     return table;
 }
 
 function timer_update(){
-    timer_bar.style.width=''+(++timer)+'px';
-    if(timer === max_time) new_game();
+    timer += level;
+    timer_bar.style.width=''+(timer)+'px';
+    if(timer >= max_bar_width) new_game();
+}
+
+function change_bar_color(){
+    timer_bar.style.backgroundColor = hsv(pureHue(),1,1);
 }
 
 function new_game(){
@@ -76,5 +88,6 @@ function new_game(){
 
 function main() {
     setInterval(timer_update, 100);
+    //setInterval(change_bar_color, 1000);
     new_game();
 }

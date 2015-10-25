@@ -3,14 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <title>Color Game</title>
+    <link href='https://fonts.googleapis.com/css?family=Fredoka+One' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="style.css">
 </head>
 <body onload="main()">
-<h1 id="game_title">Color game</h1>
-<div id="field"></div>
-<div id="timer_bar" class="bar"></div>
-<h1>Score: <i id="score_sign">0</i></h1>
-<script src="colormath.js"></script>
-<script src="colorgame.js"></script>
+<div>
+    <h1 id="game_title">The color game</h1>
+    <div id="field"></div>
+    <div id="timer_bar" class="bar"></div>
+    <button type="button" onclick="new_game()">Reset</button>
+    level:
+    <button type="button" onclick="level=1">1</button>
+    <button type="button" onclick="level=2">2</button>
+    <button type="button" onclick="level=3">3</button>
+    <button type="button" onclick="level=4">4</button>
+    <h1>Score: <i id="score_sign">0</i></h1>
+    <h1>Best: <i id="best_sign">0</i></h1>
+    <a target="_blank"  href="#">How to play</a>
+    <a target="_blank"  href="#">Github</a>
+    <a target="_blank"  href="https://vk.com/bakuutin">Author</a>
+
+    <script src="colormath.js"></script>
+    <script src="colorgame.js"></script>
+</div>
 </body>
 </html>

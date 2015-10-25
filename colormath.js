@@ -4,11 +4,11 @@
 
 var pure_colors=[// by degree on circle
     0,      //red
-    60,     //yellow
+    //60,     //yellow
     120,    //green
-    180,    //cyan
+    //180,    //cyan
     240,    //blue
-    300,    //magenta
+    //300,    //magenta
     360     //red again
 ].map(function(degree){return degree/360;});
 
