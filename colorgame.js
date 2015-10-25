@@ -74,10 +74,6 @@ function timer_update(){
     if(timer >= max_bar_width) new_game();
 }
 
-function change_bar_color(){
-    timer_bar.style.backgroundColor = hsv(pureHue(),1,1);
-}
-
 function new_game(){
     timer=0;
     score=0;

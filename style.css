@@ -16,7 +16,7 @@ a{
 td{
     height: 45px;
     width: 45px;
-    font-family: 'Source Code Pro';
+    font-family: 'Source Code Pro', monospace;
     font-size: 8pt;
 }
 
@@ -26,4 +26,49 @@ td{
     background-color: black;
     height: 5px;
     width: 243px;
+}
+
+.game{
+    float: left;
+    width: 245px;
+    margin-right: 70px;
+}
+
+.manual{
+    float: left;
+    margin-top: 40px;
+}
+
+.noselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.hex{
+    background-color: black;
+    font-family: 'Source Code Pro', monospace;
+    /*font-size: 8pt;*/
+}
+
+.r {
+    color: #ff0000;
+}
+.g {
+    color: #00ff00;
+}
+.b {
+    color: #0000ff;
+}
+.c {
+    color: #00ffff;
+}
+.m {
+    color: #ff00ff;
+}
+.y {
+    color: #ffff00;
 }
