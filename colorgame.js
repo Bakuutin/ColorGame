@@ -20,7 +20,7 @@ function wrong(cell){
     cell.style.backgroundColor = "black";
     cell.onclick = null;
     timer += penalty;
-    if(timer >= max_bar_width) new_game();
+    if(timer >= 100) new_game();
 }
 
 function right(cell){
