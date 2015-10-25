@@ -14,18 +14,23 @@ var score_sign = document.getElementById("score_sign"),
 
 var timer_bar = document.getElementById("timer_bar"),
     timer = 0,
-    max_bar_width = 243;
+    penalty = 20;
 
 function wrong(cell){
     cell.style.backgroundColor = "black";
+    cell.onclick = null;
+    timer += penalty;
+    if(timer >= max_bar_width) new_game();
 }
 
 function right(cell){
     timer = 0;
     score += level;
-    if(score>best) best=score;
-    score_sign.innerHTML=score;
-    best_sign.innerHTML=best;
+    if(score>best){
+        best=score;
+        best_sign.innerHTML=best.toString();
+    }
+    score_sign.innerHTML=score.toString();
     field.innerHTML = "";
     field.appendChild(coloredTable(5, 5));
 }
@@ -62,28 +67,26 @@ function coloredTable(x, y) {
             td.style.backgroundColor = color;
             td.style.color = color;
             td.appendChild(document.createTextNode(color));
-            //td.className = color;
         }
     }
     return table;
 }
 
 function timer_update(){
-    timer += level;
-    timer_bar.style.width=''+(timer)+'px';
-    if(timer >= max_bar_width) new_game();
+    timer += 0.2*level;
+    timer_bar.style.width=''+(timer)+'%';
+    if(timer >= 100) new_game();
 }
 
 function new_game(){
     timer=0;
     score=0;
-    score_sign.innerHTML=score;
+    score_sign.innerHTML=score.toString();
     field.innerHTML = "";
     field.appendChild(coloredTable(5, 5));
 }
 
 function main() {
     setInterval(timer_update, 100);
-    //setInterval(change_bar_color, 1000);
     new_game();
 }

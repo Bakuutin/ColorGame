@@ -9,26 +9,32 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body onload="main()">
+<h1>The color game</h1>
 <div class="game">
-    <h1>The color game</h1>
     <div id="field" class="noselect"></div>
-    <div id="timer_bar" class="bar"></div>
+    <div class="margin2px">
+        <div id="timer_bar" class="bar"></div>
+    </div>
     <button type="button" onclick="new_game()">Reset</button>
-    level:
-    <button type="button" onclick="level=1">1</button>
-    <button type="button" onclick="level=2">2</button>
-    <button type="button" onclick="level=3">3</button>
-    <button type="button" onclick="level=4">4</button>
-    <h1>Score: <i id="score_sign">0</i></h1>
-    <h1>Best: <i id="best_sign">0</i></h1>
-    <a target="_blank"  href="https://vk.com/bakuutin">by Bakuutin</a>
-    <a target="_blank"  href="#">Fork me!</a>
+    <div class="right">
+        level:
+        <button type="button" onclick="level=1">1</button>
+        <button type="button" onclick="level=2">2</button>
+        <button type="button" onclick="level=3">3</button>
+        <button type="button" onclick="level=4">4</button>
+    </div>
+    <h1>Score: <span id="score_sign">0</span></h1>
+
+    <h1>Best: <span id="best_sign">0</span></h1>
+    <a target="_blank" href="https://vk.com/bakuutin">by Bakuutin</a>
+    <a target="_blank" href="https://github.com/Bakuutin/ColorGame" class="right">Fork me!</a>
 
     <script src="colormath.js"></script>
     <script src="colorgame.js"></script>
 </div>
 <div class="manual">
-    <h1>WTF?!</h1>
+    <h3>WTF?!</h3>
+
     <p>
         It's a game about RGB. There are tree main colors:<br>
         red <span class="hex r">#ff0000</span>,
@@ -36,10 +42,15 @@
         and blue <span class="hex b">#0000ff</span><br>
     </p>
     <p>
-        Also there are tree complementary colors:<br>
+        There are also tree complementary colors:<br>
         cyan <span class="hex c">#00ffff</span>,
         magenta <span class="hex m">#ff00ff</span>
         and yellow <span class="hex y">#ffff00</span>
+    </p>
+    <p>
+        Your have to recognize them among random colors.<br>
+        <br>
+        Higher the level -- more points per guess.<br>
     </p>
 </div>
 </body>
