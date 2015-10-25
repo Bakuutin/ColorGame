@@ -9,7 +9,7 @@ var pure_colors=[// by degree on circle
     180,    //cyan
     240,    //blue
     300,    //magenta
-    360     //red
+    360     //red again
 ].map(function(degree){return degree/360;});
 
 function componentToHex(component) {

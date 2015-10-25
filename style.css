@@ -2,3 +2,10 @@ td{
     height: 40px;
     width: 40px;
 }
+
+.bar{
+    margin-left: 2px;
+    background-color: black;
+    height: 5px;
+    /*width: 218px;*/
+}
