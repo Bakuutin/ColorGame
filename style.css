@@ -67,6 +67,10 @@ td{
     font-family: 'Source Code Pro', monospace;
 }
 
+.hex:hover{
+    color: white;
+}
+
 .r {
     color: #ff0000;
 }
